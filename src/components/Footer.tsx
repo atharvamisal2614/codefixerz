@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook , Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
+import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
 import { FaWhatsapp } from 'react-icons/fa';
 
 const Footer = () => {
@@ -14,15 +14,44 @@ const Footer = () => {
                             Empowering businesses with cutting-edge digital solutions. From web development to digital marketing, we transform your vision into reality.
                         </p>
                         <div className="flex space-x-4 pt-2">
-                            {[<FaWhatsapp/>, Phone , Instagram, Linkedin].map((Icon, i) => (
-                                <a
-                                    key={i}
-                                    href="#"
-                                    className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[var(--primary)] hover:shadow-[0_0_10px_var(--primary)] transition-all duration-300"
-                                >
-                                    {/* <Icon size={20} /> */}
-                                </a>
-                            ))}
+                            {/* WhatsApp */}
+                            <a
+                                href="https://wa.me/919529926673"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#25D366] hover:shadow-[0_0_10px_#25D366] transition-all duration-300"
+                                aria-label="WhatsApp"
+                            >
+                                <FaWhatsapp size={20} />
+                            </a>
+                            {/* Phone */}
+                            <a
+                                href="tel:+919529926673"
+                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[var(--primary)] hover:shadow-[0_0_10px_var(--primary)] transition-all duration-300"
+                                aria-label="Call Us"
+                            >
+                                <Phone size={20} />
+                            </a>
+                            {/* Instagram */}
+                            <a
+                                href="https://www.instagram.com/codefixerz/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#E4405F] hover:shadow-[0_0_10px_#E4405F] transition-all duration-300"
+                                aria-label="Instagram"
+                            >
+                                <Instagram size={20} />
+                            </a>
+                            {/* LinkedIn */}
+                            <a
+                                href="https://www.linkedin.com/company/codefixerz/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#0A66C2] hover:shadow-[0_0_10px_#0A66C2] transition-all duration-300"
+                                aria-label="LinkedIn"
+                            >
+                                <Linkedin size={20} />
+                            </a>
                         </div>
                     </div>
 
