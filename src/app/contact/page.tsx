@@ -39,7 +39,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <p className="font-semibold text-[var(--heading)]">Email Us</p>
-                                        <a href="mailto:enquiry@codefixerz.com" className="text-[var(--text)]">enquiry@codefixerz.com</a>
+                                        <a href="mailto:enquiry@codefixerz.com" className="text-[var(--text)]">enquiry@codefixerz.com</a><br/>
                                         <a href="mailto:hr@codefixerz.com" className="text-[var(--text)]">hr@codefixerz.com</a>
                                     </div>
                                 </div>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                                     </div>
                                     <div>
                                         <p className="font-semibold text-[var(--heading)]">Visit Us</p>
-                                        <p className="text-[var(--text)]">5405, Lonar Lane, Near Atharva Classes, <br/>Ahilyanager, Maharashtra, 414001</p>
+                                        <p className="text-[var(--text)]">5405, Lonar Lane, Near Atharva Classes, Ahilyanager, Maharashtra, 414001</p>
                                     </div>
                                 </div>
 
