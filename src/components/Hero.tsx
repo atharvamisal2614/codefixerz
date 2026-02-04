@@ -6,7 +6,7 @@ import { ArrowRight, Code, Cpu, Globe, Sparkles } from "lucide-react";
 
 const Hero = () => {
     return (
-        <section className="relative min-h-[90vh] flex flex-col justify-center pt-32 pb-20 overflow-hidden">
+        <section className="relative min-h-[90vh] flex flex-col justify-center pt-20 pb-20 overflow-hidden">
             {/* Background Effects */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[var(--primary)]/20 rounded-full blur-[128px] animate-[pulse_6s_ease-in-out_infinite]" />
@@ -14,16 +14,6 @@ const Hero = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
-                    className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/5 border border-white/10 text-[var(--heading)] text-sm font-medium mb-10 backdrop-blur-md hover:bg-white/10 transition-colors cursor-pointer"
-                >
-                    <Sparkles className="w-4 h-4 text-[var(--accent)]" />
-                    <span>Next-Gen Digital Innovation</span>
-                </motion.div>
-
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}

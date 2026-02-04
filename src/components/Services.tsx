@@ -26,7 +26,7 @@ const services = [
         shadow: "shadow-emerald-500/20"
     },
     {
-        title: "Social Media Mgmt",
+        title: "Social Media Management",
         description: "Engaging content and management for all your social media platforms. Build a loyal community a round your brand.",
         icon: Share2,
         color: "from-pink-500 to-rose-500",
@@ -96,9 +96,6 @@ const Services = ({ limit }: { limit?: number }) => {
                                         <div className="w-full h-full rounded-2xl bg-[#1a1a1a] flex items-center justify-center">
                                             <service.icon className="w-8 h-8 text-white relative z-10" />
                                         </div>
-                                    </div>
-                                    <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transform translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                                        <ArrowUpRight className="w-5 h-5 text-white" />
                                     </div>
                                 </div>
 

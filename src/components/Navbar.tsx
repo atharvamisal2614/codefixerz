@@ -10,14 +10,34 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+
+      // Set scrolled state for background effect
+      setScrolled(currentScrollY > 20);
+
+      // Determine scroll direction and visibility
+      if (currentScrollY < 20) {
+        // Always show navbar at the top
+        setVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide navbar
+        setVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setVisible(true);
+      }
+
+      setLastScrollY(currentScrollY);
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -29,9 +49,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-[var(--background)]/80 backdrop-blur-md shadow-lg border-b border-[var(--card)]" : "bg-transparent"
-      }`}
+      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? "bg-[var(--background)]/80 backdrop-blur-md shadow-lg border-b border-[var(--card)]" : "bg-transparent"
+        } ${visible ? "translate-y-0" : "-translate-y-full"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -50,11 +69,10 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative px-2 py-1 text-sm font-medium transition-colors duration-300 ${
-                  pathname === link.href
-                    ? "text-[var(--primary)]"
-                    : "text-[var(--text)] hover:text-[var(--primary)]"
-                }`}
+                className={`relative px-2 py-1 text-sm font-medium transition-colors duration-300 ${pathname === link.href
+                  ? "text-[var(--primary)]"
+                  : "text-[var(--text)] hover:text-[var(--primary)]"
+                  }`}
               >
                 {link.name}
                 {pathname === link.href && (
@@ -100,11 +118,10 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`block px-4 py-3 text-lg font-medium w-full text-center rounded-lg transition-all ${
-                    pathname === link.href
-                      ? "bg-[var(--primary)]/10 text-[var(--primary)]"
-                      : "text-[var(--text)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
-                  }`}
+                  className={`block px-4 py-3 text-lg font-medium w-full text-center rounded-lg transition-all ${pathname === link.href
+                    ? "bg-[var(--primary)]/10 text-[var(--primary)]"
+                    : "text-[var(--text)] hover:text-[var(--primary)] hover:bg-[var(--primary)]/5"
+                    }`}
                 >
                   {link.name}
                 </Link>

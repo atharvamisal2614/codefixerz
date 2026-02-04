@@ -97,7 +97,7 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-start space-x-3 text-[var(--text)]">
                                 <MapPin className="w-5 h-5 text-[var(--primary)] shrink-0 mt-1" />
-                                <span>5405, Lonar Lane, Near Atharva Classes, Ahilyanager, Maharashtra, 414001</span>
+                                <span>5405, Sherkar Galli, Telikhunt, Near Atharva Classes, Ahilyanager, Maharashtra, 414001</span>
                             </li>
                             <li className="flex items-center space-x-3 text-[var(--text)]">
                                 <Phone className="w-5 h-5 text-[var(--primary)] shrink-0" />
@@ -117,7 +117,7 @@ const Footer = () => {
 
                 <div className="border-t border-[var(--background)] pt-8 flex flex-col md:flex-row justify-between items-center text-[var(--muted)] text-sm">
                     <p>© {new Date().getFullYear()} CodeFixerz. All rights reserved.</p>
-                    <p>Designed & Developed with 💖 by <a className="text-primary" href="mailto:enquiry@codefixerz.com">CodeFixerz</a></p>
+                    <p>Designed & Developed with ❤️ by <a className="text-primary" href="mailto:enquiry@codefixerz.com">CodeFixerz</a></p>
                 </div>
             </div>
         </footer>
