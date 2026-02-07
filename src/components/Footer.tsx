@@ -105,11 +105,11 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center space-x-3 text-[var(--text)]">
                                 <Mail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="mailto:webagency2614@gmail.com">webagency2614@gmail.com</a>
+                                <a href="mailto:webagency2614@gmail.com">enquiry@codefixerz.com</a>
                             </li>
                             <li className="flex items-center space-x-3 text-[var(--text)]">
                                 <Mail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="mailto:webagency2614@gmail.com">webagency2614@gmail.com</a>
+                                <a href="mailto:webagency2614@gmail.com">hr@codefixerz.com</a>
                             </li>
                         </ul>
                     </div>

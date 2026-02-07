@@ -69,8 +69,7 @@ export default function ContactPageClient() {
                                         </div>
                                         <div>
                                             <p className="font-semibold text-[var(--heading)]">Email Us</p>
-                                            <a href="mailto:webagency2614@gmail.com" className="text-[var(--text)]">webagency2614@gmail.com</a><br />
-                                            <a href="mailto:webagency2614@gmail.com" className="text-[var(--text)]">webagency2614@gmail.com</a>
+                                            <a href="mailto:webagency2614@gmail.com" className="text-[var(--text)]">enquiry@codefixerz.com</a><br />
                                         </div>
                                     </div>
 
