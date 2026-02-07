@@ -43,7 +43,7 @@ const Footer = () => {
                                 <Instagram size={20} />
                             </a>
                             {/* LinkedIn */}
-                            <a
+                            {/* <a
                                 href="https://www.linkedin.com/company/codefixerz/"
                                 target="_blank"
                                 rel="noopener noreferrer"
@@ -51,7 +51,7 @@ const Footer = () => {
                                 aria-label="LinkedIn"
                             >
                                 <Linkedin size={20} />
-                            </a>
+                            </a> */}
                         </div>
                     </div>
 
