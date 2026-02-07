@@ -95,7 +95,7 @@ export default function CareersForm() {
                             name="phone"
                             required
                             className="w-full px-4 py-3 rounded-xl bg-[var(--background)] border border-[var(--muted)]/20 text-[var(--heading)] focus:outline-none focus:border-[var(--primary)] focus:ring-1 focus:ring-[var(--primary)] transition-all"
-                            placeholder="+1 234 567 8900"
+                            placeholder="+91 9876543210"
                         />
                     </div>
 
