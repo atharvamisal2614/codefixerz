@@ -34,7 +34,7 @@ const Footer = () => {
                             </a>
                             {/* Instagram */}
                             <a
-                                href="https://www.instagram.com/codefixerz/"
+                                href="https://www.instagram.com/codefixerz?utm_source=qr&igsh=MXMyMXBuazJ6ODE4ZQ=="
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#E4405F] hover:shadow-[0_0_10px_#E4405F] transition-all duration-300"
