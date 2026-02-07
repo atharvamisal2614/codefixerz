@@ -3,7 +3,7 @@ import ContactPageClient from "@/components/ContactPageClient";
 
 export const metadata: Metadata = {
     title: "Contact Us - Get in Touch",
-    description: "Contact CodeFixerz for web development, software solutions, and digital marketing services. Reach us via email at enquiry@codefixerz.com or call +91 95299 26673. We're located in Ahilyanager, Maharashtra. Business hours: Mon-Fri, 9AM-6PM.",
+    description: "Contact CodeFixerz for web development, software solutions, and digital marketing services. Reach us via email at webagency2614@gmail.com or call +91 95299 26673. We're located in Ahilyanager, Maharashtra. Business hours: Mon-Fri, 9AM-6PM.",
     keywords: [
         "contact codefixerz",
         "web development contact",

@@ -19,7 +19,7 @@ export default function HomePage() {
             name: 'CodeFixerz',
             image: 'https://www.codefixerz.com/images/favicon-logo.png',
             telephone: '+91-95299-26673',
-            email: 'enquiry@codefixerz.com',
+            email: 'webagency2614@gmail.com',
             address: {
                 '@type': 'PostalAddress',
                 streetAddress: '5405, Lonar Lane, Near Atharva Classes',

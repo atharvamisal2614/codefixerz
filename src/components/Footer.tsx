@@ -105,11 +105,11 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center space-x-3 text-[var(--text)]">
                                 <Mail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="mailto:enquiry@codefixerz.com">enquiry@codefixerz.com</a>
+                                <a href="mailto:webagency2614@gmail.com">webagency2614@gmail.com</a>
                             </li>
                             <li className="flex items-center space-x-3 text-[var(--text)]">
                                 <Mail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="mailto:hr@codefixerz.com">hr@codefixerz.com</a>
+                                <a href="mailto:webagency2614@gmail.com">webagency2614@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -117,7 +117,7 @@ const Footer = () => {
 
                 <div className="border-t border-[var(--background)] pt-8 flex flex-col md:flex-row justify-between items-center text-[var(--muted)] text-sm">
                     <p>© {new Date().getFullYear()} CodeFixerz. All rights reserved.</p>
-                    <p>Designed & Developed with ❤️ by <a className="text-primary" href="mailto:enquiry@codefixerz.com">CodeFixerz</a></p>
+                    <p>Designed & Developed with ❤️ by <a className="text-primary" href="mailto:webagency2614@gmail.com">CodeFixerz</a></p>
                 </div>
             </div>
         </footer>

@@ -105,7 +105,7 @@ export default function RootLayout({
       '@type': 'ContactPoint',
       telephone: '+91-95299-26673',
       contactType: 'customer service',
-      email: 'enquiry@codefixerz.com',
+      email: 'webagency2614@gmail.com',
       availableLanguage: ['English', 'Hindi']
     },
     sameAs: [
