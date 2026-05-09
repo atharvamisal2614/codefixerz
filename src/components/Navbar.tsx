@@ -111,7 +111,7 @@ const Navbar = () => {
           ))}
           <Link
             href="tel:+919529926673"
-            className="mt-6 px-10 py-4 bg-[#1E40AF] hover:bg-blue-800 text-white text-xl font-bold rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all active:scale-95 flex items-center gap-3"
+            className="mt-6 px-10 py-4 hover:bg-[#1E40AF] bg-blue-700 text-white text-xl font-bold rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all active:scale-95 flex items-center gap-3"
             onClick={() => setIsMobileMenuOpen(false)}
           >
             <HiPhone className="text-2xl" />
