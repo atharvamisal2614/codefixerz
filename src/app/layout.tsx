@@ -9,24 +9,24 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.codefixerz.com'),
   title: {
-    default: "CodeFixerz | Web Development & Digital Solutions",
+    default: "CodeFixerz | Expert Web Development & Innovative Digital Solutions",
     template: "%s | CodeFixerz"
   },
-  description: "CodeFixerz offers professional Website Development, Software Development, Automation, Digital Marketing, and HR services to elevate your business. Transform your digital presence with our expert team.",
+  description: "CodeFixerz is a leading digital agency specializing in high-performance web development, custom software engineering, and strategic digital marketing. We help brands like yours grow and innovate.",
   keywords: [
+    "Codefix",
+    "Codefixer",
+    "Codefixers",
+    "Codefixerz",
     "Web Development",
     "Software Development",
     "Automation Services",
     "Digital Marketing",
     "SEO Services",
-    "Recruitment Services",
-    "CodeFixerz",
+    "Ahilyanagar Tech Agency",
     "Custom Software Solutions",
     "Mobile App Development",
-    "E-commerce Development",
     "UI/UX Design",
-    "Cloud Solutions",
-    "API Development",
     "Full Stack Development"
   ],
   authors: [{ name: "CodeFixerz Team" }],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.codefixerz.com",
     siteName: "CodeFixerz",
-    title: "CodeFixerz | Web Development & Digital Solutions",
+    title: "CodeFixerz | Expert Web Development & Digital Solutions",
     description: "Transform your business with professional web development, software solutions, and digital marketing services. Expert team delivering innovative solutions.",
     images: [
       {
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CodeFixerz | Web Development & Digital Solutions",
+    title: "CodeFixerz | Expert Web Development & Digital Solutions",
     description: "Transform your business with professional web development, software solutions, and digital marketing services.",
     images: ["/images/twitter-image.png"],
     creator: "@codefixerz",
@@ -76,49 +76,51 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "your-google-site-verification-code",
-    // Add other verification codes as needed
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'CodeFixerz',
-    url: 'https://www.codefixerz.com',
-    logo: 'https://www.codefixerz.com/images/favicon-logo.png',
-    description: 'Professional web development, software solutions, and digital marketing services.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '5405, Lonar Lane, Near Atharva Classes',
-      addressLocality: 'Ahilyanager',
-      addressRegion: 'Maharashtra',
-      postalCode: '414001',
-      addressCountry: 'IN'
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "CodeFixerz",
+    "image": "https://www.codefixerz.com/images/favicon-logo.png",
+    "url": "https://www.codefixerz.com",
+    "telephone": "+91-95299-26673",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "5405, Lonar Lane, Near Atharva Classes",
+      "addressLocality": "Ahilyanagar",
+      "addressRegion": "Maharashtra",
+      "postalCode": "414001",
+      "addressCountry": "IN"
     },
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+91-95299-26673',
-      contactType: 'customer service',
-      email: 'webagency2614@gmail.com',
-      availableLanguage: ['English', 'Hindi']
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 19.0948,
+      "longitude": 74.7480
     },
-    sameAs: [
-      'https://www.linkedin.com/company/codefixerz',
-      'https://www.instagram.com/codefixerz',
-      'https://twitter.com/codefixerz'
-    ],
-    foundingDate: '2019',
-    areaServed: 'Worldwide',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '50'
-    }
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/codefixerz",
+      "https://twitter.com/codefixerz",
+      "https://www.instagram.com/codefixerz"
+    ]
   };
 
   return (
@@ -129,7 +131,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} antialiased selection:bg-[#3B82F6] selection:text-white`}>
+      <body className={inter.className}>
         <Navbar />
         <main className="min-h-screen">
           {children}
