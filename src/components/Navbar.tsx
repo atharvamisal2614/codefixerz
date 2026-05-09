@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { HiMenuAlt3, HiX, HiPhone } from "react-icons/hi";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -62,10 +62,11 @@ const Navbar = () => {
         {/* CTA Button */}
         <div className="hidden md:block">
           <Link
-            href="/contact"
-            className="px-6 py-2.5 bg-primary hover:bg-primary-hover text-white text-sm font-semibold rounded-full transition-all hover:scale-105 active:scale-95 shadow-[0_0_15px_rgba(59,130,246,0.3)]"
+            href="tel:+919529926673"
+            className="px-6 py-2.5 bg-[#1E40AF] hover:bg-blue-700 text-white text-md font-semibold rounded-xl transition-all hover:scale-105 active:scale-95  flex items-center gap-2"
           >
-            Get a Free Quote
+            <HiPhone className="text-lg" />
+            95299 26673
           </Link>
         </div>
 
@@ -109,11 +110,12 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/contact"
-            className="mt-6 px-10 py-4 bg-primary hover:bg-primary-hover text-white text-xl font-bold rounded-full shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all active:scale-95"
+            href="tel:+919529926673"
+            className="mt-6 px-10 py-4 bg-[#1E40AF] hover:bg-blue-800 text-white text-xl font-bold rounded-xl shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-all active:scale-95 flex items-center gap-3"
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Get a Free Quote
+            <HiPhone className="text-2xl" />
+            9529926673
           </Link>
         </div>
       </div>

@@ -16,27 +16,31 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
           {/* Left: Contact Info */}
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-            {/* Badge */}
-            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full mb-6" style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}>
-              <span className="text-xs font-bold tracking-widest uppercase text-primary">
-                Contact Us
-              </span>
+          <div className="flex flex-col">
+            {/* Header Content - Centered on Mobile */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+              {/* Badge */}
+              <div className="inline-flex items-center px-3.5 py-1.5 rounded-full mb-6" style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}>
+                <span className="text-xs font-bold tracking-widest uppercase text-primary">
+                  Contact Us
+                </span>
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 !text-black" style={{ color: '#000000' }}>
+                Let&apos;s Start a Project <br className="hidden sm:block" />
+                <span className="text-primary">Together</span>
+              </h2>
+
+              {/* Subtext */}
+              <p className="text-gray-600 text-base sm:text-lg mb-10 max-w-md leading-relaxed">
+                Have a project in mind or want to discuss how we can help your business grow? We&apos;d love to hear from you.
+              </p>
             </div>
 
-            {/* Heading */}
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-5 !text-black" style={{ color: '#000000' }}>
-              Let&apos;s Start a Project <br className="hidden sm:block" />
-              <span className="text-primary">Together</span>
-            </h2>
-
-            {/* Subtext */}
-            <p className="text-gray-600 text-base sm:text-lg mb-10 max-w-md leading-relaxed">
-              Have a project in mind or want to discuss how we can help your business grow? We&apos;d love to hear from you.
-            </p>
-
-            {/* Contact Details */}
-            <div className="flex flex-col gap-6 mb-12">
+            {/* Contact Details - Always Left Aligned */}
+            <div className="flex flex-col items-start">
+              <div className="flex flex-col gap-6 mb-12 w-full">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center text-xl flex-shrink-0">
                   <HiOutlinePhone />
@@ -74,9 +78,9 @@ const ContactSection = () => {
             </div>
 
             {/* Social Media */}
-            <div>
+            <div className="flex flex-col items-center lg:items-start w-full">
               <h4 className="font-bold text-[15px] mb-4 !text-black" style={{ color: '#000000' }}>Follow Us</h4>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center lg:justify-start gap-3 w-full">
                 {[
                   { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/codefixerz" },
                   { icon: <FaTwitter />, href: "https://twitter.com/codefixerz" },
@@ -94,6 +98,7 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
+        </div>
 
           {/* Right: Message Form & Map */}
           <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-6 sm:p-10">

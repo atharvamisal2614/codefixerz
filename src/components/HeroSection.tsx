@@ -49,7 +49,7 @@ const HeroSection = () => {
             {/* Description */}
             <p className="text-gray-400 text-base sm:text-lg leading-relaxed mb-10 max-w-xl">
               From powerful websites and software to result-driven marketing and
-              social media management — we help businesses grow, innovate and
+              social media management. We help businesses grow, innovate and
               scale in the digital world.
             </p>
 
