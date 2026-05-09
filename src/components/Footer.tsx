@@ -11,9 +11,9 @@ const Footer = () => {
     <footer className="relative bg-[#020617] pt-20 pb-10 overflow-hidden text-white">
 
       {/* ── Background Glows ── */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-[-10%] left-[5%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-[50%] h-[50%] bg-blue-500/10 rounded-full blur-[120px]" />
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[10%] left-[5%] w-[40%] h-[40%] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-blue-500/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
