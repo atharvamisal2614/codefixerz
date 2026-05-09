@@ -30,13 +30,14 @@ const AboutSection = () => {
         <div className="flex flex-col lg:flex-row gap-x-12 lg:gap-x-20 gap-y-8 items-start mb-16 sm:mb-20">
 
           {/* LEFT COLUMN: Heading & Paragraphs (and Image on Mobile) */}
-          <div className="w-full lg:w-1/2 flex flex-col">
+          <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* 1. Header */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
+              className="flex flex-col items-center lg:items-start"
             >
               {/* Badge */}
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 border border-blue-100 mb-6">
@@ -48,7 +49,7 @@ const AboutSection = () => {
               {/* Heading */}
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-8 !text-black" style={{ color: '#000000' }}>
                 We Are More Than <br className="hidden sm:block" />
-                Just a <span className="text-primary">Digital Agency</span>
+                <span className="text-primary">Digital Agency</span>
               </h2>
             </motion.div>
 
@@ -74,7 +75,7 @@ const AboutSection = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex flex-col gap-6 text-gray-600 text-base lg:text-lg leading-relaxed max-w-lg"
+              className="flex flex-col gap-6 text-gray-600 text-base lg:text-lg leading-relaxed max-w-lg items-center lg:items-start"
             >
               <p>
                 CodeFixerz is a team of passionate developers, designers, marketers, and strategists
@@ -112,17 +113,17 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6"
         >
           {coreValues.map((val, idx) => (
             <div
               key={idx}
-              className="flex flex-col items-center justify-center text-center p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+              className="flex flex-col items-center justify-center text-center p-5 sm:p-8 rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-3xl mb-4 group-hover:bg-primary group-hover:text-white transition-all">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-blue-50 text-primary flex items-center justify-center text-2xl sm:text-3xl mb-4 group-hover:bg-primary group-hover:text-white transition-all">
                 {val.icon}
               </div>
-              <h4 className="font-bold text-base sm:text-lg !text-black" style={{ color: '#000000' }}>{val.title}</h4>
+              <h4 className="font-bold text-sm sm:text-lg !text-black" style={{ color: '#000000' }}>{val.title}</h4>
             </div>
           ))}
         </motion.div>

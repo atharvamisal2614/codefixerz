@@ -51,15 +51,15 @@ const ServicesSection = () => {
       <div className="px-5 sm:px-6 lg:px-8 max-w-7xl mx-auto">
 
         {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
+        <div className="max-w-3xl mx-auto lg:mx-0 mb-12 sm:mb-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col text-center lg:text-left"
+            className="flex flex-col text-center lg:text-left items-center lg:items-start"
           >
-            <div className="inline-flex items-center self-center lg:self-start px-3.5 py-1.5 rounded-full mb-6" style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}>
+            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full mb-6" style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}>
               <span className="text-xs font-bold tracking-widest uppercase text-primary">
                 Our Expertise
               </span>

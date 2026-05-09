@@ -12,8 +12,8 @@ const Footer = () => {
 
       {/* ── Background Glows ── */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
-        <div className="absolute top-[-10%] left-[5%] w-[40%] h-[40%] bg-blue-600/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[-10%] left-[5%] w-[50%] h-[50%] bg-blue-600/10 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[5%] w-[50%] h-[50%] bg-blue-500/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
@@ -37,7 +37,7 @@ const Footer = () => {
                 Codefixerz
               </span>
             </Link>
-            <p className="text-blue-100/60 text-sm leading-relaxed mb-8">
+            <p className="text-blue-100/60 text-sm leading-relaxed mb-8 max-w-sm">
               A premier digital agency specializing in high-performance web development, custom software, and data-driven marketing.
             </p>
             <div className="flex items-center gap-3">
@@ -117,7 +117,7 @@ const Footer = () => {
         </div>
 
         {/* ═══ Bottom Copyright Strip ═══ */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <p className="text-blue-100/50 text-sm">
             © {new Date().getFullYear()} Codefixerz. All rights reserved.
           </p>

@@ -36,6 +36,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
+            className="flex flex-col items-center lg:items-start text-center lg:text-left"
           >
             {/* Tagline Badge */}
 
@@ -53,7 +54,7 @@ const HeroSection = () => {
             </p>
 
             {/* Buttons */}
-            <div className="flex flex-wrap gap-4 mb-12">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
               <button className="px-7 py-3.5 hover:bg-[#1E40AF] bg-blue-700 text-white font-bold rounded-xl flex items-center gap-3 transition-all">
                 Explore Services <HiArrowRight className="text-xl" />
               </button>
@@ -73,19 +74,12 @@ const HeroSection = () => {
             {/* Futuristic Laptop/Display Image */}
             <div className="relative w-full max-w-[550px] aspect-[4/3] flex items-center justify-center">
               <Image
-                src="/images/codefixerz-home-bg.png"
+                src="/images/codefixerz-home-image.png"
                 alt="Digital Interface"
                 width={500}
                 height={375}
                 className="object-contain relative z-10"
               />
-
-              {/* Floating UI Elements */}
-
-
-              {/* Blue circular ring at base */}
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[80%] h-4 bg-blue-500/20 rounded-full blur-xl z-0" />
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] h-[2px] bg-blue-500/40 rounded-full z-0 shadow-[0_0_20px_rgba(59,130,246,0.5)]" />
             </div>
           </motion.div>
 
@@ -98,15 +92,15 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="w-full mb-12 sm:mb-20"
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 p-6 sm:p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 backdrop-blur-xl">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 p-4 sm:p-8 rounded-[2rem] bg-white/[0.03] border border-white/10 backdrop-blur-xl">
             {stats.map((stat, i) => (
-              <div key={i} className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-xl text-blue-400 flex-shrink-0">
+              <div key={i} className="flex items-center gap-2 sm:gap-4">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-lg sm:text-xl text-blue-400 flex-shrink-0">
                   {stat.icon}
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xl sm:text-2xl font-bold tracking-tight">{stat.value}</span>
-                  <span className="text-[10px] sm:text-xs font-medium text-gray-400 uppercase tracking-widest">{stat.label}</span>
+                  <span className="text-lg sm:text-2xl font-bold tracking-tight">{stat.value}</span>
+                  <span className="text-[9px] sm:text-xs font-medium text-gray-400 uppercase tracking-widest leading-tight">{stat.label}</span>
                 </div>
               </div>
             ))}

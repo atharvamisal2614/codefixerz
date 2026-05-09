@@ -16,9 +16,9 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start">
 
           {/* Left: Contact Info */}
-          <div className="flex flex-col">
+          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
             {/* Badge */}
-            <div className="inline-flex items-center w-fit px-3.5 py-1.5 rounded-full mb-6" style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}>
+            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full mb-6" style={{ background: "rgba(59,130,246,0.1)", border: "1px solid rgba(59,130,246,0.2)" }}>
               <span className="text-xs font-bold tracking-widest uppercase text-primary">
                 Contact Us
               </span>
