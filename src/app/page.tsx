@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
-import HomePage from "@/components/HomePage";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ServicesSection from "@/components/ServicesSection";
+import CareersSection from "@/components/CareersSection";
+import ContactSection from "@/components/ContactSection";
 
 export const metadata: Metadata = {
   title: "Home - Transform Your Digital Presence",
@@ -38,5 +42,13 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  return <HomePage />;
+  return (
+    <>
+      <HeroSection />
+      <AboutSection />
+      <ServicesSection />
+      <CareersSection />
+      <ContactSection />
+    </>
+  );
 }

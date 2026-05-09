@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: #000000;
   --card: #121212;
   --heading: #ffffff;
   --text: #a1a1aa;
@@ -87,9 +87,6 @@ html.lenis body {
 
 body {
   background: var(--background);
-  background-image:
-    radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 25%);
   color: var(--text);
   font-family: var(--font-sans), 'Inter', 'Helvetica Neue', sans-serif;
   overflow-x: hidden;

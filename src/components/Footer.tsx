@@ -1,127 +1,136 @@
+"use client";
+
+import React from "react";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react";
-import { FaWhatsapp } from 'react-icons/fa';
+import Image from "next/image";
+import { FaLinkedinIn, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { HiOutlineArrowUpRight, HiOutlineMapPin, HiOutlineEnvelope, HiOutlinePhone, HiArrowRight } from "react-icons/hi2";
 
 const Footer = () => {
-    return (
-        <footer className="bg-[var(--card)] border-t border-[var(--primary)]/10 pt-16 pb-8">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-                    {/* Brand Info */}
-                    <div className="space-y-4">
-                        <h2 className="text-2xl font-bold text-[var(--heading)]">CodeFixerz</h2>
-                        <p className="text-[var(--text)] leading-relaxed">
-                            Empowering businesses with cutting-edge digital solutions. From web development to digital marketing, we transform your vision into reality.
-                        </p>
-                        <div className="flex space-x-4 pt-2">
-                            {/* WhatsApp */}
-                            <a
-                                href="https://wa.me/919529926673"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#25D366] hover:shadow-[0_0_10px_#25D366] transition-all duration-300"
-                                aria-label="WhatsApp"
-                            >
-                                <FaWhatsapp size={20} />
-                            </a>
-                            {/* Phone */}
-                            <a
-                                href="tel:+919529926673"
-                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[var(--primary)] hover:shadow-[0_0_10px_var(--primary)] transition-all duration-300"
-                                aria-label="Call Us"
-                            >
-                                <Phone size={20} />
-                            </a>
-                            {/* Instagram */}
-                            <a
-                                href="https://www.instagram.com/codefixerz?utm_source=qr&igsh=MXMyMXBuazJ6ODE4ZQ=="
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#E4405F] hover:shadow-[0_0_10px_#E4405F] transition-all duration-300"
-                                aria-label="Instagram"
-                            >
-                                <Instagram size={20} />
-                            </a>
-                            {/* LinkedIn */}
-                            {/* <a
-                                href="https://www.linkedin.com/company/codefixerz/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="w-10 h-10 rounded-full bg-[var(--background)] flex items-center justify-center text-[var(--muted)] hover:text-[#0A66C2] hover:shadow-[0_0_10px_#0A66C2] transition-all duration-300"
-                                aria-label="LinkedIn"
-                            >
-                                <Linkedin size={20} />
-                            </a> */}
-                        </div>
-                    </div>
+  return (
+    <footer className="relative bg-[#020617] pt-20 pb-10 overflow-hidden text-white">
 
-                    {/* Quick Links */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-[var(--heading)] mb-6">Quick Links</h3>
-                        <ul className="space-y-3">
-                            {['Home', 'About Us', 'Services', 'Careers', 'Contact'].map((item) => (
-                                <li key={item}>
-                                    <Link
-                                        href={item === 'Home' ? '/' : `/${item.toLowerCase().replace(' ', '-')}`}
-                                        className="text-[var(--text)] hover:text-[var(--primary)] hover:translate-x-2 transition-all duration-300 inline-block"
-                                    >
-                                        {item}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+      {/* ── Background Glows ── */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-[-10%] left-[5%] w-[40%] h-[40%] bg-blue-600/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[10%] right-[5%] w-[40%] h-[40%] bg-blue-500/5 rounded-full blur-[120px]" />
+      </div>
 
-                    {/* Services */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-[var(--heading)] mb-6">Our Services</h3>
-                        <ul className="space-y-3">
-                            {[
-                                'Web Development',
-                                'Software Development',
-                                'Automation Software',
-                                'Digital Marketing',
-                                'Graphic Design',
-                                'Google Maps Management'
-                            ].map((item) => (
-                                <li key={item} className="text-[var(--text)] hover:text-[var(--primary)] transition-colors cursor-pointer">
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
 
-                    {/* Contact Info */}
-                    <div>
-                        <h3 className="text-lg font-semibold text-[var(--heading)] mb-6">Contact Us</h3>
-                        <ul className="space-y-4">
-                            <li className="flex items-start space-x-3 text-[var(--text)]">
-                                <MapPin className="w-5 h-5 text-[var(--primary)] shrink-0 mt-1" />
-                                <span>5405, Sherkar Galli, Telikhunt, Near Atharva Classes, Ahilyanager, Maharashtra, 414001</span>
-                            </li>
-                            <li className="flex items-center space-x-3 text-[var(--text)]">
-                                <Phone className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="tel:+919529926673">+91 95299 26673</a>
-                            </li>
-                            <li className="flex items-center space-x-3 text-[var(--text)]">
-                                <Mail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="mailto:webagency2614@gmail.com">enquiry@codefixerz.com</a>
-                            </li>
-                            <li className="flex items-center space-x-3 text-[var(--text)]">
-                                <Mail className="w-5 h-5 text-[var(--primary)] shrink-0" />
-                                <a href="mailto:webagency2614@gmail.com">hr@codefixerz.com</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div className="border-t border-[var(--background)] pt-8 flex flex-col md:flex-row justify-between items-center text-[var(--muted)] text-sm">
-                    <p>© {new Date().getFullYear()} CodeFixerz. All rights reserved.</p>
-                    <p>Designed & Developed with ❤️ by <a className="text-primary" href="mailto:webagency2614@gmail.com">CodeFixerz</a></p>
-                </div>
+        {/* ═══ Main Footer Links ═══ */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+
+          {/* Brand Col */}
+          <div className="flex flex-col lg:pr-8">
+            <Link href="/" className="flex items-center gap-2 mb-6">
+              <div className="relative w-10 h-10">
+                <Image
+                  src="/images/favicon-logo.png"
+                  alt="Codefixerz Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-2xl font-bold tracking-tight text-white">
+                Codefixerz
+              </span>
+            </Link>
+            <p className="text-blue-100/60 text-sm leading-relaxed mb-8">
+              A premier digital agency specializing in high-performance web development, custom software, and data-driven marketing.
+            </p>
+            <div className="flex items-center gap-3">
+              {[
+                { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/codefixerz" },
+                { icon: <FaTwitter />, href: "https://twitter.com/codefixerz" },
+                { icon: <FaFacebookF />, href: "#" },
+                { icon: <FaInstagram />, href: "https://www.instagram.com/codefixerz" },
+              ].map((social, idx) => (
+                <a
+                  key={idx}
+                  href={social.href}
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-blue-100/80 hover:bg-primary hover:border-primary hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
-        </footer>
-    );
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="font-bold text-[16px] mb-6 text-white tracking-wide">Our Services</h4>
+            <ul className="flex flex-col gap-4">
+              {[
+                "Custom Software Development",
+                "Web & App Design",
+                "E-Commerce Solutions",
+                "Digital Marketing & SEO",
+                "Business Automation"
+              ].map((service, i) => (
+                <li key={i}>
+                  <Link href="#" className="text-blue-100/60 text-sm hover:text-white hover:translate-x-1 inline-block transition-all duration-300">
+                    {service}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-bold text-[16px] mb-6 text-white tracking-wide">Company</h4>
+            <ul className="flex flex-col gap-4">
+              {["About Us", "Our Work", "Careers", "Blog", "Contact Us"].map((link, i) => (
+                <li key={i}>
+                  <Link href="#" className="text-blue-100/60 text-sm hover:text-white hover:translate-x-1 inline-block transition-all duration-300">
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="font-bold text-[16px] mb-6 text-white tracking-wide">Get in Touch</h4>
+            <ul className="flex flex-col gap-5">
+              <li className="flex items-start gap-3 text-blue-100/60 text-sm">
+                <HiOutlineMapPin className="text-xl text-primary flex-shrink-0" />
+                <span className="leading-relaxed">5405, Lonar Lane, Near Atharva Classes, Ahilyanagar, IN 414001</span>
+              </li>
+              <li className="flex items-center gap-3 text-blue-100/60 text-sm">
+                <HiOutlinePhone className="text-xl text-primary flex-shrink-0" />
+                <span>+91-95299-26673</span>
+              </li>
+              <li className="flex items-start gap-3 text-blue-100/60 text-sm">
+                <HiOutlineEnvelope className="text-xl text-primary flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href="mailto:info@codefixerz.com" className="hover:text-white transition-colors">info@codefixerz.com</a>
+                  <a href="mailto:hr@codefixerz.com" className="hover:text-white transition-colors">hr@codefixerz.com</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        {/* ═══ Bottom Copyright Strip ═══ */}
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-blue-100/50 text-sm">
+            © {new Date().getFullYear()} Codefixerz. All rights reserved.
+          </p>
+          <div className="flex items-center gap-6">
+            <Link href="#" className="text-blue-100/50 text-sm hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="text-blue-100/50 text-sm hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="#" className="text-blue-100/50 text-sm hover:text-white transition-colors">Cookies</Link>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
