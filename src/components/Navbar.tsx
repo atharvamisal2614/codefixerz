@@ -63,7 +63,7 @@ const Navbar = () => {
         <div className="hidden md:block">
           <Link
             href="tel:+919529926673"
-            className="px-6 py-2.5 bg-[#1E40AF] hover:bg-blue-700 text-white text-md font-semibold rounded-xl transition-all hover:scale-105 active:scale-95  flex items-center gap-2"
+            className="px-6 py-2.5 hover:bg-[#1E40AF] bg-blue-700 text-white text-md font-semibold rounded-xl transition-all hover:scale-105 active:scale-95  flex items-center gap-2"
           >
             <HiPhone className="text-lg" />
             95299 26673

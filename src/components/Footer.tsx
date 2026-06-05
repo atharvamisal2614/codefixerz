@@ -3,7 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaLinkedinIn, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { HiOutlineArrowUpRight, HiOutlineMapPin, HiOutlineEnvelope, HiOutlinePhone, HiArrowRight } from "react-icons/hi2";
 
 const Footer = () => {
@@ -43,13 +43,15 @@ const Footer = () => {
             <div className="flex items-center gap-3">
               {[
                 { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/codefixerz" },
-                { icon: <FaTwitter />, href: "https://twitter.com/codefixerz" },
-                { icon: <FaFacebookF />, href: "#" },
+                { icon: <FaWhatsapp />, href: "https://wa.me/9529926673" },
+                { icon: <FaFacebookF />, href: "https://www.facebook.com/Codefixerz" },
                 { icon: <FaInstagram />, href: "https://www.instagram.com/codefixerz" },
               ].map((social, idx) => (
                 <a
                   key={idx}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-blue-100/80 hover:bg-primary hover:border-primary hover:text-white flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                 >
                   {social.icon}
@@ -82,10 +84,15 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-[16px] mb-6 text-white tracking-wide">Company</h4>
             <ul className="flex flex-col gap-4">
-              {["About Us", "Our Work", "Careers", "Blog", "Contact Us"].map((link, i) => (
+              {[
+                { name: "About Us", href: "/about" },
+                { name: "Our Work", href: "/services" },
+                { name: "Careers", href: "/careers" },
+                { name: "Contact Us", href: "/contact" }
+              ].map((link, i) => (
                 <li key={i}>
-                  <Link href="#" className="text-blue-100/60 text-sm hover:text-white hover:translate-x-1 inline-block transition-all duration-300">
-                    {link}
+                  <Link href={link.href} className="text-blue-100/60 text-sm hover:text-white hover:translate-x-1 inline-block transition-all duration-300">
+                    {link.name}
                   </Link>
                 </li>
               ))}

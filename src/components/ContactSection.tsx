@@ -1,15 +1,59 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import {
   HiOutlinePhone,
   HiOutlineEnvelope,
   HiOutlineMapPin,
   HiPaperAirplane
 } from "react-icons/hi2";
-import { FaLinkedinIn, FaTwitter, FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaWhatsapp, FaFacebookF, FaInstagram } from "react-icons/fa";
 
 const ContactSection = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.phone || !formData.message) {
+      setErrorMessage("Please fill in all fields.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again later.");
+    }
+  };
+
   return (
     <section className="bg-white border-t border-gray-100">
       <div className="py-8 sm:py-16 lg:py-8 max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -83,13 +127,15 @@ const ContactSection = () => {
               <div className="flex items-center justify-center lg:justify-start gap-3 w-full">
                 {[
                   { icon: <FaLinkedinIn />, href: "https://www.linkedin.com/company/codefixerz" },
-                  { icon: <FaTwitter />, href: "https://twitter.com/codefixerz" },
-                  { icon: <FaFacebookF />, href: "#" },
+                  { icon: <FaWhatsapp />, href: "https://wa.me/9529926673" },
+                  { icon: <FaFacebookF />, href: "https://www.facebook.com/Codefixerz" },
                   { icon: <FaInstagram />, href: "https://www.instagram.com/codefixerz" },
                 ].map((social, idx) => (
                   <a
                     key={idx}
                     href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-500 hover:border-primary hover:bg-primary hover:text-white transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-1"
                   >
                     {social.icon}
@@ -104,44 +150,55 @@ const ContactSection = () => {
           <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-6 sm:p-10">
             <h3 className="text-2xl font-bold mb-8 !text-black" style={{ color: '#000000' }}>Send Us a Message</h3>
 
-            <form className="flex flex-col gap-4 mb-8">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-4 mb-8">
               <input
                 type="text"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
                 placeholder="Your Name"
-                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm"
+                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900"
               />
               <input
                 type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Your Email"
-                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm"
+                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900"
+              />
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder="Your Phone Number"
+                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900"
               />
               <textarea
                 rows={4}
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
                 placeholder="Your Message"
-                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm resize-none"
+                className="w-full px-5 py-3.5 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900 resize-none"
               />
 
+              {status === "error" && <p className="text-red-500 text-sm mt-1">{errorMessage}</p>}
+              {status === "success" && <p className="text-green-500 text-sm mt-1">Message sent successfully!</p>}
+
               <button
-                type="button"
-                className="w-full py-4 mt-2 bg-primary text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 group"
+                type="submit"
+                disabled={status === "loading"}
+                className="w-full py-4 mt-2 bg-primary text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                Send Message
+                {status === "loading" ? "Sending..." : "Send Message"}
                 <HiPaperAirplane className="text-lg group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
 
             {/* Map Area */}
             <div className="relative w-full h-[200px] sm:h-[250px] rounded-2xl overflow-hidden border border-gray-100 bg-gray-50">
-              {/* <iframe
-                src="https://maps.app.goo.gl/L5j9CZiTtUoRj8kz5"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={false}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                className="absolute inset-0"
-              /> */}
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.2232966528227!2d74.73545647466571!3d19.09785755128704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdcb17aff85990f%3A0x39863fab9443a03e!2sCodefixerz!5e0!3m2!1sen!2sin!4v1780470370943!5m2!1sen!2sin" 
                 width="100%"
                 height="100%"

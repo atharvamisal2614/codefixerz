@@ -13,6 +13,62 @@ import {
 } from "react-icons/hi2";
 
 const CareersSection = () => {
+  const [formData, setFormData] = React.useState({
+    name: "",
+    email: "",
+    position: "",
+  });
+  const [resume, setResume] = React.useState<File | null>(null);
+  const [status, setStatus] = React.useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = React.useState("");
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setResume(e.target.files[0]);
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email || !formData.position || !resume) {
+      setErrorMessage("Please fill in all fields and upload a resume.");
+      setStatus("error");
+      return;
+    }
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const data = new FormData();
+      data.append("name", formData.name);
+      data.append("email", formData.email);
+      data.append("position", formData.position);
+      data.append("resume", resume);
+
+      const res = await fetch("/api/careers", {
+        method: "POST",
+        body: data,
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send application.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", position: "" });
+      setResume(null);
+    } catch (error) {
+      console.error(error);
+      setStatus("error");
+      setErrorMessage("Something went wrong. Please try again later.");
+    }
+  };
+
   const positions = [
     {
       role: "Frontend Developer",
@@ -158,18 +214,18 @@ const CareersSection = () => {
             className="bg-white rounded-3xl shadow-sm border border-gray-100 p-6 sm:p-10"
           >
             <h3 className="text-2xl font-bold mb-6 !text-black" style={{ color: '#000000' }}>Submit Your Application</h3>
-            <form className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-semibold text-gray-700">Full Name</label>
-                <input type="text" placeholder="John Doe" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" />
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="John Doe" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900" />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-semibold text-gray-700">Email Address</label>
-                <input type="email" placeholder="john@example.com" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm" />
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="john@example.com" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900" />
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-semibold text-gray-700">Position</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-600 bg-white">
+                <select name="position" value={formData.position} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900 bg-white">
                   <option value="">Select a position...</option>
                   <option value="Frontend Developer">Frontend Developer</option>
                   <option value="Backend Developer">Backend Developer</option>
@@ -180,10 +236,14 @@ const CareersSection = () => {
               </div>
               <div className="flex flex-col gap-1.5">
                 <label className="text-sm font-semibold text-gray-700">Upload Resume</label>
-                <input type="file" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100" />
+                <input type="file" onChange={handleFileChange} className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all text-sm text-gray-900 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-primary hover:file:bg-blue-100" />
               </div>
-              <button type="button" className="w-full py-4 mt-2 bg-primary text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 group">
-                Send Application <HiPaperAirplane className="text-lg group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
+
+              {status === "error" && <p className="text-red-500 text-sm mt-1">{errorMessage}</p>}
+              {status === "success" && <p className="text-green-500 text-sm mt-1">Application sent successfully!</p>}
+
+              <button type="submit" disabled={status === "loading"} className="w-full py-4 mt-2 bg-primary text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md hover:bg-blue-600 transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed">
+                {status === "loading" ? "Sending..." : "Send Application"} <HiPaperAirplane className="text-lg group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
           </motion.div>

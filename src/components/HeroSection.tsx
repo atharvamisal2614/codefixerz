@@ -13,10 +13,10 @@ import {
 
 const HeroSection = () => {
   const stats = [
-    { label: "Projects Completed", value: "100+", icon: <HiOutlineComputerDesktop /> },
-    { label: "Happy Clients", value: "50+", icon: <HiOutlineUserGroup /> },
-    { label: "Years Experience", value: "5+", icon: <HiOutlineClock /> },
-    { label: "Team Members", value: "20+", icon: <HiOutlineTrophy /> },
+    { label: "Projects Completed", value: "25+", icon: <HiOutlineComputerDesktop /> },
+    { label: "Happy Clients", value: "15+", icon: <HiOutlineUserGroup /> },
+    { label: "Years Experience", value: "2+", icon: <HiOutlineClock /> },
+    { label: "Team Members", value: "10+", icon: <HiOutlineTrophy /> },
   ];
 
   return (
